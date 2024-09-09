@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(137, 19, 201)
+}
+.container{
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 100%;
+    margin: auto;
+    margin-top: 150px;
+    max-width: 500px;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(65, 65, 65, 0.5);
+}
+h2{
+    text-align: center;
+    padding: 10px;
+}
+button{
+    margin-top: 15px;
+}
+.form-check{
+    margin-top: 15px ;
+}
