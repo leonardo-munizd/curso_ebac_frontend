@@ -1,0 +1,122 @@
+@import './variaveis';
+
+// Mixin para centralizar conteúdo
+@mixin center-container () {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// Mixin para flexbox alinhamento central
+@mixin flex-center () {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Mixin para media queries
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == 'tablet' {
+        @media screen and (max-width: 1023px) { @content; }
+    }
+    @else if $breakpoint == 'mobile' {
+        @media screen and (max-width: 767px) { @content; }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+body {
+    background-color:$primarycolor;
+}
+li {
+    list-style: none;
+}
+.container {
+    @include center-container(); 
+}
+header {
+    background-color: $secondcolor;
+    position: sticky;
+    top: 0;
+    
+
+    .container {
+        @include flex-center ();
+        padding: 16px 0;
+        
+    }
+    
+}
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: 24px;
+
+        a {
+            color: $thirdcolor;
+            text-decoration: none;
+        }
+        
+    }
+    
+}
+section {
+    padding: 56px 0;
+}
+.products {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+
+    img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .product-button {
+        display: block;
+        background-color:$buttoncolor;
+        color: #fff;
+        text-align: center;
+        padding: 8px 0;
+        border-radius: 8px;
+        margin-top: 8px;
+        text-decoration: none;
+
+        &:hover{
+            background-color:$hoverbutton;
+        }
+    }
+    
+}
+
+@include respond-to('tablet') {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@include respond-to('mobile') {
+    .products {
+        display: block;
+    }
+
+    .product-item {
+        margin-bottom: 32px;
+    }
+}
